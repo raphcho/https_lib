@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="httpslib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/httpslib.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

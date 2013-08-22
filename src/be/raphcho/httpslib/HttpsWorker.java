@@ -1,6 +1,7 @@
 package be.raphcho.httpslib;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -8,7 +9,9 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -25,10 +28,10 @@ import org.apache.http.protocol.HTTP;
 
 import android.net.Uri;
 import android.net.Uri.Builder;
+import android.util.Log;
 import be.raphcho.httpslib.classes.HttpsParameter;
 
 public class HttpsWorker {
-	
 	
 	/*
 	 * SIMPLIFIED METHODS
@@ -40,6 +43,7 @@ public class HttpsWorker {
 	public static String doDeleteToString(String URL) {
 		return HttpUtils.getResponseBodyToString(doDelete(URL));
 	}
+	
 	public static String doPutToString(String URL, ArrayList<HttpsParameter> parameters) {
 		return HttpUtils.getResponseBodyToString(doPut(URL, parameters));
 	}
@@ -97,9 +101,8 @@ public class HttpsWorker {
 		return doPut(URL, null);
 	}
 	
-	
 	/*
-	 * 		DELETE
+	 * DELETE
 	 */
 	
 	protected static HttpResponse doDelete(String URL, ArrayList<HttpsParameter> parameters) {
@@ -124,8 +127,9 @@ public class HttpsWorker {
 		}
 		return response;
 	}
+	
 	protected static HttpResponse doDelete(String URL) {
-		return doDelete(URL,null);
+		return doDelete(URL, null);
 	}
 	
 	/*
@@ -192,10 +196,9 @@ public class HttpsWorker {
 		return doGet(URL, null);
 	}
 	
-	
 	public static String executePostUTF8(String url, List<NameValuePair> nvps) {
 		AbstractHttpEntity ent;
-		String response= "error";
+		String response = "error";
 		try {
 			ent = new UrlEncodedFormEntity(nvps, HTTP.UTF_8);
 			
@@ -207,16 +210,46 @@ public class HttpsWorker {
 			HttpClient client = new DefaultHttpClient();
 			HttpResponse res = client.execute(post);
 			response = HttpUtils.getResponseBodyToString(res);
-		} catch (UnsupportedEncodingException e) {
+		}
+		catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
-		} catch (URISyntaxException e) {
-	        e.printStackTrace();
-		} catch (ClientProtocolException e) {
-	        e.printStackTrace();
-        } catch (IOException e) {
-	        e.printStackTrace();
-        }
+		}
+		catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+		catch (ClientProtocolException e) {
+			e.printStackTrace();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		return response;
+	}
+	
+	public static InputStream doGetToInputStream(String url) {
+		DefaultHttpClient client = new DefaultHttpClient();
+		
+		HttpGet httpRequest = new HttpGet(url);
+		
+		try {
+			
+			HttpResponse httpResponse = client.execute(httpRequest);
+			final int statusCode = httpResponse.getStatusLine().getStatusCode();
+			
+			if (statusCode != HttpStatus.SC_OK) {
+				return null;
+			}
+			
+			HttpEntity httpEntity = httpResponse.getEntity();
+			return httpEntity.getContent();
+			
+		}
+		catch (IOException e) {
+			httpRequest.abort();
+		}
+		
+		return null;
+		
 	}
 }
