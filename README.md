@@ -1,4 +1,9 @@
-https_lib
+Https Lib
 =========
 
-Library for easy https requests
+L'utilisation de cette librairie est très simple
+
+Exécuter une requête get
+------------------------
+
+> HttpsWorker.doGetToString(url);
