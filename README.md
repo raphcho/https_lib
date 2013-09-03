@@ -3,11 +3,11 @@ Https Lib
 
 L'utilisation de cette librairie est très simple
 
-##### Exécuter une requête get
+## Requête get
 
 > HttpsWorker.doGetToString(url);
 
-##### Exécuter une requête post
+## Exécuter une requête post
 
 > HttpsWorker.doPostToString(url);
 
@@ -18,3 +18,5 @@ L'utilisation de cette librairie est très simple
 ##### Exécuter une requête delete
 
 > HttpsWorker.doDeleteToString(url);
+
+
