@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Https lib : Library for easy https requests" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Https lib</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/raphcho/https_lib">View on GitHub</a>
+
+          <h1 id="project_title">Https lib</h1>
+          <h2 id="project_tagline">Library for easy https requests</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/raphcho/https_lib/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/raphcho/https_lib/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="https-lib" class="anchor" href="#https-lib"><span class="octicon octicon-link"></span></a>Https Lib</h1>
+
+<p>L'utilisation de cette librairie est très simple. Elle a pour but de faciliter la réalisations de requêtes Https.
+En Android il est souvent très difficile d'effectuer une requêtes Https. Plus avec cette librairie ;-)</p>
+
+<h2>
+<a name="ex%C3%A9cuter-une-requ%C3%AAte-get" class="anchor" href="#ex%C3%A9cuter-une-requ%C3%AAte-get"><span class="octicon octicon-link"></span></a>Exécuter une requête get</h2>
+
+<div class="highlight"><pre><span class="n">HttpsWorker</span><span class="o">.</span><span class="na">doGetToString</span><span class="o">(</span><span class="n">url</span><span class="o">);</span>
+</pre></div>
+
+<h2>
+<a name="ex%C3%A9cuter-une-requ%C3%AAte-post" class="anchor" href="#ex%C3%A9cuter-une-requ%C3%AAte-post"><span class="octicon octicon-link"></span></a>Exécuter une requête post</h2>
+
+<div class="highlight"><pre><span class="n">HttpsWorker</span><span class="o">.</span><span class="na">doPostToString</span><span class="o">(</span><span class="n">url</span><span class="o">);</span>
+</pre></div>
+
+<h2>
+<a name="ex%C3%A9cuter-une-requ%C3%AAte-put" class="anchor" href="#ex%C3%A9cuter-une-requ%C3%AAte-put"><span class="octicon octicon-link"></span></a>Exécuter une requête put</h2>
+
+<div class="highlight"><pre><span class="n">HttpsWorker</span><span class="o">.</span><span class="na">doPutToString</span><span class="o">(</span><span class="n">url</span><span class="o">);</span>
+</pre></div>
+
+<h2>
+<a name="ex%C3%A9cuter-une-requ%C3%AAte-delete" class="anchor" href="#ex%C3%A9cuter-une-requ%C3%AAte-delete"><span class="octicon octicon-link"></span></a>Exécuter une requête delete</h2>
+
+<div class="highlight"><pre><span class="n">HttpsWorker</span><span class="o">.</span><span class="na">doDeleteToString</span><span class="o">(</span><span class="n">url</span><span class="o">);</span>
+</pre></div>
+
+<h2>
+<a name="ajouter-des-param%C3%A8tres" class="anchor" href="#ajouter-des-param%C3%A8tres"><span class="octicon octicon-link"></span></a>Ajouter des paramètres</h2>
+
+<div class="highlight"><pre><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">HttpsParameter</span><span class="o">&gt;</span> <span class="n">parameters</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">HttpsParameter</span><span class="o">&gt;();</span>
+<span class="n">HttpsWorker</span><span class="o">.</span><span class="na">doPostToString</span><span class="o">(</span><span class="n">url</span><span class="o">,</span> <span class="n">parameters</span><span class="o">);</span>
+</pre></div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Https lib maintained by <a href="https://github.com/raphcho">raphcho</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
